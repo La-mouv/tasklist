@@ -10,9 +10,19 @@
 <div class="container">
     <h1>Ma liste de tâches</h1>
     <input type="text" id="newTask" placeholder="Nouvelle tâche...">
-    <input type="date" id="taskDeadline"> <!-- Sélecteur de date ajouté ici -->
+    <input type="date" id="taskDeadline">
     <button id="addTask">Ajouter</button>
-    <ul id="tasksList"></ul>
+    <table id="tasksTable">
+        <thead>
+            <tr>
+                <th></th> <!-- Pour la checkbox -->
+                <th>Tâche</th>
+                <th>Date</th>
+                <th>Actions</th> <!-- Pour le bouton effacer -->
+            </tr>
+        </thead>
+        <tbody id="tasksList"></tbody> <!-- Les tâches seront ajoutées ici -->
+    </table>
 </div>
     <script src="script.js"></script>
 </body>
