@@ -11,7 +11,20 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: left;  /* Ajoutez cette ligne pour aligner le contenu à gauche */
 }
+
+/* Ajoutez ce code pour centrer le titre */
+h1 {
+    text-align: center;
+}
+
+/* Ajoutez ce code pour centrer le bouton "Ajouter" */
+button {
+    display: block;
+    margin: 10px auto;
+}
+
 
 button {
     padding: 10px 15px;
