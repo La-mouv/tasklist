@@ -23,9 +23,11 @@ document.getElementById('addTask').addEventListener('click', function() {
 
 function addTask() {
     const taskValue = document.getElementById('newTask').value;
+    const taskDeadline = document.getElementById('taskDeadline').value; // Récupérer la date limite
+
     if (taskValue) {
         const li = document.createElement('li');
-        
+
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.addEventListener('change', function() {
@@ -38,7 +40,16 @@ function addTask() {
             }
         });
         li.appendChild(checkbox);
+
         li.appendChild(document.createTextNode(' ' + taskValue));
+
+        // Ajout de la date limite si elle existe
+        if (taskDeadline) {
+            const deadlineSpan = document.createElement('span');
+            deadlineSpan.className = 'deadline';
+            deadlineSpan.textContent = ` - Jusqu'au ${taskDeadline}`;
+            li.appendChild(deadlineSpan);
+        }
 
         // Création du bouton "Effacer"
         const deleteButton = document.createElement('button');
@@ -47,19 +58,17 @@ function addTask() {
         deleteButton.addEventListener('click', function() {
             li.remove();
         });
-        li.appendChild(deleteButton); // Ajoutez le bouton à la tâche
+        li.appendChild(deleteButton);
 
+        // Ajout de la tâche à la liste
         document.getElementById('tasksList').appendChild(li);
-        document.getElementById('newTask').value = ''; // Réinitialiser le champ de saisie
+
+        // Réinitialisation des champs de saisie
+        document.getElementById('newTask').value = '';
+        document.getElementById('taskDeadline').value = '';
     }
 }
 
-document.getElementById('addTask').addEventListener('click', addTask);
-document.getElementById('newTask').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        addTask();
-    }
-});
 
 <div class="container">
     <h1>Ma liste de tâches</h1>
