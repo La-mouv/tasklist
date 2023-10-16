@@ -35,3 +35,27 @@ button:hover {
 #tasksList li {
     padding: 5px 0;         /* Ajoute un peu d'espace entre les éléments de la liste */
 }
+
+#tasksList li {
+    position: relative;  /* Position relative pour le positionnement absolu du bouton */
+    padding-right: 80px; /* Espace pour le bouton */
+}
+
+.delete-btn {
+    position: absolute; 
+    right: 10px;  /* Positionné à droite */
+    top: 50%;
+    transform: translateY(-50%);  /* Centré verticalement */
+    display: none;  /* Par défaut, le bouton est caché */
+    background-color: #f44336;  /* Couleur rouge pour le bouton d'effacement */
+    color: #fff;    /* Texte blanc */
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#tasksList li:hover .delete-btn {
+    display: block;  /* Affiche le bouton lors du survol de la tâche */
+}
+
