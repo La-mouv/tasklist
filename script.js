@@ -2,7 +2,20 @@ document.getElementById('addTask').addEventListener('click', function() {
     const taskValue = document.getElementById('newTask').value;
     if (taskValue) {
         const li = document.createElement('li');
-        li.textContent = taskValue;
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                li.style.textDecoration = 'line-through';
+                li.style.color = '#aaa';
+            } else {
+                li.style.textDecoration = 'none';
+                li.style.color = '#000';
+            }
+        });
+
+        li.appendChild(checkbox); 
+        li.appendChild(document.createTextNode(' ' + taskValue));  // Ajouter une espace pour séparer la checkbox du texte
         document.getElementById('tasksList').appendChild(li);
         document.getElementById('newTask').value = '';  // Réinitialiser le champ de saisie
     }
