@@ -41,20 +41,6 @@ button:hover {
     padding-right: 80px; /* Espace pour le bouton */
 }
 
-.delete-btn {
-    position: absolute; 
-    right: 10px;  /* Positionné à droite */
-    top: 50%;
-    transform: translateY(-50%);  /* Centré verticalement */
-    display: none;  /* Par défaut, le bouton est caché */
-    background-color: #f44336;  /* Couleur rouge pour le bouton d'effacement */
-    color: #fff;    /* Texte blanc */
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
 #tasksList li:hover .delete-btn {
     display: block;  /* Affiche le bouton lors du survol de la tâche */
 }
@@ -63,4 +49,31 @@ button:hover {
     font-style: italic;
     color: #888;
     margin-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
 }
