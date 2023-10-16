@@ -42,6 +42,14 @@ function addTask() {
         document.getElementById('tasksList').appendChild(li);
         document.getElementById('newTask').value = ''; // Réinitialiser le champ de saisie
     }
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Effacer';
+    deleteButton.className = 'delete-btn';
+    deleteButton.addEventListener('click', function() {
+        li.remove();
+    });
+
+    li.appendChild(deleteButton);
 }
 
 document.getElementById('addTask').addEventListener('click', addTask);
