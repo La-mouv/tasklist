@@ -25,3 +25,12 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+#tasksList {
+    list-style-type: none;  /* Supprime le point de liste par défaut */
+    padding-left: 0;        /* Supprime le padding par défaut */
+}
+
+#tasksList li {
+    padding: 5px 0;         /* Ajoute un peu d'espace entre les éléments de la liste */
+}
