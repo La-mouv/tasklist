@@ -29,50 +29,52 @@ document.getElementById('addTask').addEventListener('click', function() {
 
 function addTask() {
     const taskValue = document.getElementById('newTask').value;
-    const taskDeadline = document.getElementById('taskDeadline').value; // Récupérer la date limite
+    const taskDeadline = document.getElementById('taskDeadline').value;
 
     if (taskValue) {
-        const li = document.createElement('li');
+        const row = document.createElement('tr');
 
+        // Checkbox
+        const checkboxCell = document.createElement('td');
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.addEventListener('change', function() {
             if (this.checked) {
-                li.style.textDecoration = 'line-through';
-                li.style.color = '#aaa';
+                row.style.textDecoration = 'line-through';
+                row.style.color = '#aaa';
             } else {
-                li.style.textDecoration = 'none';
-                li.style.color = '#000';
+                row.style.textDecoration = 'none';
+                row.style.color = '#000';
             }
         });
-        li.appendChild(checkbox);
+        checkboxCell.appendChild(checkbox);
+        row.appendChild(checkboxCell);
 
-        li.appendChild(document.createTextNode(' ' + taskValue));
+        // Tâche
+        const taskCell = document.createElement('td');
+        taskCell.textContent = taskValue;
+        row.appendChild(taskCell);
 
-        // Ajout de la date limite si elle existe
-        if (taskDeadline) {
-            const deadlineSpan = document.createElement('span');
-            deadlineSpan.className = 'deadline';
-            deadlineSpan.textContent = ` - Jusqu'au ${taskDeadline}`;
-            li.appendChild(deadlineSpan);
-        }
+        // Date
+        const dateCell = document.createElement('td');
+        dateCell.textContent = taskDeadline || '-'; // Si pas de date, afficher un tiret
+        row.appendChild(dateCell);
 
-        // Création du bouton "Effacer"
+        // Bouton Effacer
+        const deleteCell = document.createElement('td');
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Effacer';
         deleteButton.className = 'delete-btn';
         deleteButton.addEventListener('click', function() {
-            li.remove();
+            row.remove();
         });
-        li.appendChild(deleteButton);
+        deleteCell.appendChild(deleteButton);
+        row.appendChild(deleteCell);
 
-        // Ajout de la tâche à la liste
-        document.getElementById('tasksList').appendChild(li);
+        document.getElementById('tasksList').appendChild(row);
 
-        // Réinitialisation des champs de saisie
+        // Réinitialiser les champs
         document.getElementById('newTask').value = '';
         document.getElementById('taskDeadline').value = '';
     }
 }
-
-
