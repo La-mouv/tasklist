@@ -70,11 +70,3 @@ function addTask() {
 }
 
 
-<div class="container">
-    <h1>Ma liste de tâches</h1>
-    <input type="text" id="newTask" placeholder="Nouvelle tâche...">
-    <input type="date" id="taskDeadline"> <!-- Sélecteur de date ajouté ici -->
-    <button id="addTask">Ajouter</button>
-    <ul id="tasksList"></ul>
-</div>
-
