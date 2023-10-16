@@ -14,18 +14,6 @@ body {
     text-align: left;  /* Ajoutez cette ligne pour aligner le contenu à gauche */
 }
 
-/* Ajoutez ce code pour centrer le titre */
-h1 {
-    text-align: center;
-}
-
-/* Ajoutez ce code pour centrer le bouton "Ajouter" */
-button {
-    display: block;
-    margin: 10px auto;
-}
-
-
 button {
     padding: 10px 15px;
     background-color: #007BFF;
